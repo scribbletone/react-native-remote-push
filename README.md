@@ -14,26 +14,31 @@ Thanks to @jhen0409 this is now available as an NPM module:
 npm install react-native-remote-push
 
 
-## Examples
-### Getting started
-Copy all of the files to your XCode directory, and add them to your project. Then, when you want to use the module, require the RemotePushIOS class, e.g.
+### Installation
 
-```
-var RemotePushIOS = require("./../RemotePush/RemotePushIOS");
-```
+1. Add the following files to your XCode library. (Right click on `Library`, select `Add files to "Your Project Name"`)
+  - `RCTRemotePushManager.h`
+  - `RCTRemotePushManager.m`
+  - `RemotePushDelegate.h`
+  - `RemotePushDelegate.m` 
 
-Note: you'll also need to add the following line to your AppDelegate.m: 
+2. Add the following line to the top of AppDelegate.m: 
+  ```
+  #import "RemotePushDelegate.h"
+  ```
 
-```
-#import "RemotePushDelegate.h"
-```
+3. And then also add this method to AppDelegate.m, at the bottom, before `@end` (this is VERY important - your app won't start unless you do this)
+  ```
+  - (id) init {
+    return self;
+  }
+  ```
 
-And then also add this method (this is VERY important - your app won't start unless you do this)
-```
-- (id) init {
-  return self;
-}
-```
+4. When you want to use the module, require the RemotePushIOS class, e.g.
+
+  ```
+  var RemotePushIOS = require("react-native-remote-push");
+  ```
 
 ### Registering For Push Notifications
 
